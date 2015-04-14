@@ -46,10 +46,7 @@
           var entry = data[Math.floor(Math.random()*data.length)];
           console.log(entry);
           $("#quoteDisplay").text(entry);
-        }
-        .error(function(xhr) {
-          alert(xhr);
-        }));
+        });
       })
     </script>
     <script src="javascripts/scale.fix.js"></script>
