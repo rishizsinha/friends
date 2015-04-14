@@ -13,10 +13,11 @@
 
     <script type="text/javascript">
       function quoteGen() {
-        $.getJSON("http://rishizsinha.github.io/quotedb.json", function(data){
-          console.log(data);
-          var entry = data[Math.floor(Math.random()*data.length)];
-          $("#quoteDisplay").text(entry);
+        $.getJSON("http://rishizsinha.github.io/friends/quotedb.json", 
+          function(data){
+            console.log(data);
+            var entry = data[Math.floor(Math.random()*data.length)];
+            $("#quoteDisplay").text(entry);
           });
       }
     </script>
