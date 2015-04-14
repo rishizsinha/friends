@@ -41,7 +41,7 @@
     <script>
       $('#genButton').click(function() {
         console.log("click");
-        $.getJSON("http://rishizsinha.github.io/friends/quotedb.json", {}, function(data){
+        $.getJSON("http://rishizsinha.github.io/friends/quotedb.json?callback=?", {}, function(data){
           console.log("executing");
           var entry = data[Math.floor(Math.random()*data.length)];
           console.log(entry);
