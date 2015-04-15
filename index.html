@@ -45,7 +45,8 @@
           console.log("executing");
           var entry = data[Math.floor(Math.random()*data.length)];
           console.log(entry);
-          $("#quoteDisplay").text(<i>entry.quote</i>);
+          $("#quoteDisplay").html("<i>"+entry.quote+"</i></br></br>~"+entry.character+"</br>("+
+            entry.episode+")");
         });
       })
     </script>
