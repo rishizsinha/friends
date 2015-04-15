@@ -52,7 +52,8 @@
           console.log(entry);
           $("#quoteDisplay").html("<i>"+entry.quote+"</i></br></br>~"+entry.character+"</br>("+
             entry.episode+")");
-        });
+        }));
+
         $('#sceneButton').click(function() {
         console.log("click");
         $.getJSON("http://rishizsinha.github.io/friends/scenedb.json", function(data) {
@@ -63,7 +64,7 @@
             "</b></br></br><i>"+entry.dialogue+"</i></br></br>("+
             entry.episode+")");
         });
-      })
+      });
     </script>
     <script src="javascripts/scale.fix.js"></script>
     
