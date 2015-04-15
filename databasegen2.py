@@ -65,20 +65,24 @@ def epConvert(transcroup):
 	return json.dumps(epQuotes), json.dumps(epScenes)
 
 def main():
-	qdb = open("quotedb.json", 'w')
-	sdb = open("scenedb.json", 'w')
+	allquotes = []
+	allscenes = []
 	BASE = "friendsalltranscripts/"
 	for ep in listdir(BASE):
 		print ep
 		f = open(BASE+ep, 'r')
 		soup = BeautifulSoup(f)
 		res = epConvert(soup)
-		qdb.write(res[0])
-		sdb.write(res[1])
-		f.close()
+		allquotes.append(res[0])
+		allscenes.append(res[1])
+
+	qdb = open("quotedb.json", 'w')
+	sdb = open("scenedb.json", 'w')
+	qdb.write(json.dumps(allquotes))
+	sdb.write(json.dumps(allscenes))
 	qdb.close()
 	sdb.close()
-
+	
 main()
 
 """
