@@ -62,7 +62,7 @@ def epConvert(transcroup):
 				activeQuote.quote += " " + line
 				if activeScene and activeQuote.character not in activeScene.characters:
 					activeScene.characters.append(activeQuote.character)
-	return json.dumps(epQuotes), json.dumps(epScenes)
+	return epQuotes, epScenes
 
 def main():
 	allquotes = []
