@@ -45,9 +45,7 @@
           console.log("executing");
           var entry = data[Math.floor(Math.random()*data.length)];
           console.log(entry);
-          $("#quoteDisplay").text(entry);
-        }).fail(function() { 
-          console.log( "error" ); 
+          $("#quoteDisplay").text("<i>"+entry.quote+"</i>");
         });
       })
     </script>
