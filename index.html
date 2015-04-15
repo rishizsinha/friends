@@ -29,7 +29,8 @@
       <h2> Choose a Character! <h2>
 
       <div id="genButtonDiv">
-        <button id="genButton">Quote!</button>
+        <button id="quoteButton">Quote!</button>
+        <button id="sceneButton">Quote!</button>
       </div>
 
       <div id="quoteDisplay" style="padding:50px;">
@@ -43,13 +44,23 @@
 
     </div>
     <script>
-      $('#genButton').click(function() {
+      $('#quoteButton').click(function() {
         console.log("click");
         $.getJSON("http://rishizsinha.github.io/friends/quotedb.json", function(data) {
           console.log("executing");
           var entry = data[Math.floor(Math.random()*data.length)];
           console.log(entry);
           $("#quoteDisplay").html("<i>"+entry.quote+"</i></br></br>~"+entry.character+"</br>("+
+            entry.episode+")");
+        });
+        $('#sceneButton').click(function() {
+        console.log("click");
+        $.getJSON("http://rishizsinha.github.io/friends/scenedb.json", function(data) {
+          console.log("executing");
+          var entry = data[Math.floor(Math.random()*data.length)];
+          console.log(entry);
+          $("#quoteDisplay").html("<b>"+entry.setting+"</b></br></br><b>"+entry.characters+
+            "</b></br></br><i>"+entry.dialogue+"</i></br></br>("+
             entry.episode+")");
         });
       })
