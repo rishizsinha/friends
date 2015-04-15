@@ -73,8 +73,8 @@ def main():
 		f = open(BASE+ep, 'r')
 		soup = BeautifulSoup(f)
 		res = epConvert(soup)
-		allquotes.append(res[0])
-		allscenes.append(res[1])
+		allquotes += res[0]
+		allscenes += res[1]
 
 	qdb = open("quotedb.json", 'w')
 	sdb = open("scenedb.json", 'w')
@@ -82,7 +82,7 @@ def main():
 	sdb.write(json.dumps(allscenes))
 	qdb.close()
 	sdb.close()
-	
+
 main()
 
 """
