@@ -30,7 +30,7 @@
 
       <div id="genButtonDiv">
         <button id="quoteButton">Quote!</button>
-        <button id="sceneButton">Quote!</button>
+        <button id="sceneButton">Scene!</button>
       </div>
 
       <div id="quoteDisplay" style="padding:50px;">
@@ -52,7 +52,8 @@
           console.log(entry);
           $("#quoteDisplay").html("<i>"+entry.quote+"</i></br></br>~"+entry.character+"</br>("+
             entry.episode+")");
-        }));
+        })
+      });
 
         $('#sceneButton').click(function() {
         console.log("click");
