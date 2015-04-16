@@ -62,7 +62,7 @@
           var entry = data[Math.floor(Math.random()*data.length)];
           console.log(entry);
           $("#quoteDisplay").html("<b>"+entry.setting+"</b></br></br><b>{"+entry.characters+
-            "}</b></br></br><i>"+entry.dialogue+"</i></br></br>("+
+            "}</b></br></br><i>"+entry.dialogue.replace("\n","<\br>")+"</i></br></br>("+
             entry.episode+")");
         });
       });
