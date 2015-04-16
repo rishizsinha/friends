@@ -281,6 +281,12 @@ div {
   cursor: pointer;
 }
 
+.divider{
+  width:5px;
+  height:auto;
+  display:inline-block;
+}
+
 #rachel {
   background: url(../rachel.png) no-repeat;
   background-size: 100% 100%;
