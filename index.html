@@ -22,7 +22,7 @@
 
         <div class="navbar-header">
           <!-- Navigation Button -->
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navlinks">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
             <span class="sr-only"> Toggle Navigation </span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
@@ -36,8 +36,8 @@
         <div class="collapse navbar-collapse" id="navlinks">
           <ul class="nav navbar-nav">
             <li><a href="index.html">Quote Generator</a></li>
-            <li><a href="team.html">Best Quotes</a></li>
-            <li><a href="competitions.html">Test Yourself!</a></li>
+            <li><a href="index.html">Best Quotes</a></li>
+            <li><a href="index.html">Test Yourself!</a></li>
           </ul>
         </div>
         <!-- /.navbar-collapse -->  
@@ -50,6 +50,15 @@
       <h1> Friends Quote Generator! </h1>
 
       <h2> Choose a Character! <h2>
+      <div class="row">
+        <div class="circular col-xs-2" id="rachel"> </div>
+        <div class="circular col-xs-2" id="chandler"> </div>
+        <div class="circular col-xs-2" id="monica"> </div>
+        <div class="circular col-xs-2" id="joey"> </div>
+        <div class="circular col-xs-2" id="phoebe"> </div>
+        <div class="circular col-xs-2" id="ross"> </div>
+      </div>
+
 
       <div id="genButtonDiv">
         <button id="quoteButton">Quote!</button>
@@ -67,26 +76,98 @@
 
     </div>
     <script>
-      $('#quoteButton').click(function() {
-        console.log("click");
+
+      var randomQuote = function() {
         $.getJSON("http://rishizsinha.github.io/friends/quotedb.json", function(data) {
-          console.log("executing");
+          return data[Math.floor(Math.random()*data.length)];
+        });
+      };
+
+      var quoteDisplay = function(q) {
+        $("#quoteDisplay").html("<i>"+q.quote+"</i></br></br>~"+q.character+"</br>("+q.episode+")");
+      }; 
+
+      $('#quoteButton').click(function() {
+        $.getJSON("http://rishizsinha.github.io/friends/quotedb.json", function(data) {
           var entry = data[Math.floor(Math.random()*data.length)];
-          console.log(entry);
-          $("#quoteDisplay").html("<i>"+entry.quote+"</i></br></br>~"+entry.character+"</br>("+
-            entry.episode+")");
+          $("#quoteDisplay").html("<i>"+entry.quote+"</i></br></br>~"+entry.character+"</br>("+entry.episode+")");
         })
+
       });
 
-        $('#sceneButton').click(function() {
-        console.log("click");
+      $('#sceneButton').click(function() {
         $.getJSON("http://rishizsinha.github.io/friends/scenedb.json", function(data) {
-          console.log("executing");
           var entry = data[Math.floor(Math.random()*data.length)];
           console.log(entry);
           $("#quoteDisplay").html("<b>"+entry.setting+"</b></br></br><b>{"+entry.characters+
             "}</b></br></br><i>"+entry.dialogue.replace("\n","<\\br>")+"</i></br></br>("+
             entry.episode+")");
+        });
+      });
+
+      $('#rachel').click(function() {
+        $.getJSON("http://rishizsinha.github.io/friends/quotedb.json", function(data) {
+          var entry = data[Math.floor(Math.random()*data.length)];
+          while (entry.character != "Rachel") {
+            entry = data[Math.floor(Math.random()*data.length)];
+          }
+          console.log(entry);
+          $("#quoteDisplay").html("<i>"+entry.quote+"</i></br></br>~"+entry.character+"</br>("+entry.episode+")");
+        });
+      });
+
+      $('#chandler').click(function() {
+        $.getJSON("http://rishizsinha.github.io/friends/quotedb.json", function(data) {
+          var entry = data[Math.floor(Math.random()*data.length)];
+          while (entry.character != "Chandler") {
+            entry = data[Math.floor(Math.random()*data.length)];
+          }
+          console.log(entry);
+          $("#quoteDisplay").html("<i>"+entry.quote+"</i></br></br>~"+entry.character+"</br>("+entry.episode+")");
+        });
+      });
+
+      $('#monica').click(function() {
+        $.getJSON("http://rishizsinha.github.io/friends/quotedb.json", function(data) {
+          var entry = data[Math.floor(Math.random()*data.length)];
+          while (entry.character != "Monica") {
+            entry = data[Math.floor(Math.random()*data.length)];
+          }
+          console.log(entry);
+          $("#quoteDisplay").html("<i>"+entry.quote+"</i></br></br>~"+entry.character+"</br>("+entry.episode+")");
+        });
+      });
+
+      $('#phoebe').click(function() {
+        $.getJSON("http://rishizsinha.github.io/friends/quotedb.json", function(data) {
+          var entry = data[Math.floor(Math.random()*data.length)];
+          while (entry.character != "Phoebe") {
+            entry = data[Math.floor(Math.random()*data.length)];
+          }
+          console.log(entry);
+          $("#quoteDisplay").html("<i>"+entry.quote+"</i></br></br>~"+entry.character+"</br>("+entry.episode+")");
+        });
+      });
+
+      $('#joey').click(function() {
+        $.getJSON("http://rishizsinha.github.io/friends/quotedb.json", function(data) {
+          var entry = data[Math.floor(Math.random()*data.length)];
+          while (entry.character != "Joey") {
+            entry = data[Math.floor(Math.random()*data.length)];
+          }
+          console.log(entry);
+          $("#quoteDisplay").html("<i>"+entry.quote+"</i></br></br>~"+entry.character+"</br>("+entry.episode+")");
+        });
+      });
+
+      $('#ross').click(function() {
+        $.getJSON("http://rishizsinha.github.io/friends/quotedb.json", function(data) {
+          var entry = data[Math.floor(Math.random()*data.length)];
+          while (entry.character != "Ross") {
+            entry = data[Math.floor(Math.random()*data.length)];
+          }
+          console.log(entry);
+          $("#quoteDisplay").html("<i>"+entry.quote+"</i></br></br>~"+entry.character+"</br>("+entry.episode+")");
         });
       });
     </script>

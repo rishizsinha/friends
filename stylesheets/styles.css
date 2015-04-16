@@ -254,6 +254,10 @@ footer {
   }
 }
 
+div {
+  padding: 10px;
+}
+
 #quoteDisplay {
   padding: 50px;
 }
@@ -261,3 +265,38 @@ footer {
 .navbar-brand {
   padding-top:10px !important;
 }
+
+.circular {
+  width: 100px;
+  height: 100px;
+  margin: 5px;
+  border-radius: 150px;
+  -webkit-border-radius: 150px;
+  -moz-border-radius: 150px;
+  box-shadow: 0 0 8px rgba(0, 0, 0, .8);
+  -webkit-box-shadow: 0 0 8px rgba(0, 0, 0, .8);
+  -moz-box-shadow: 0 0 8px rgba(0, 0, 0, .8);
+}
+.circular:hover{
+  cursor: pointer;
+}
+
+#rachel {
+  background: url(../rachel.png) no-repeat;
+}
+#ross {
+  background: url(../ross.png) no-repeat;
+}
+#chandler {
+  background: url(../chandler.png) no-repeat;
+}
+#joey {
+  background: url(../joey.png) no-repeat;
+}
+#phoebe {
+  background: url(../phoebe.png) no-repeat;
+}
+#monica {
+  background: url(../monica.png) no-repeat;
+}
+
