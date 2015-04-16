@@ -34,7 +34,7 @@ class Scene:
 			"dialogue":self.dialogue, "episode":self.episode}
 
 def epConvert(transcroup):
-	title = transcroup.title.string.encode("utf8")
+	title = transcroup.title.string.encode("utf8").title()
 	text = transcroup.get_text()
 	activeScene = None
 	activeQuote = None
@@ -52,11 +52,13 @@ def epConvert(transcroup):
 			if activeQuote:
 				epQuotes.append(activeQuote.tojson())
 				if activeScene:
-					activeScene.dialogue += activeQuote.character + ":" + \
+					activeScene.dialogue += activeQuote.character + ": " + \
 						activeQuote.quote + "\n"
 			activeQuote = Quote()
 			activeQuote.episode = title
-			activeQuote.character,activeQuote.quote = line.split(":", 1)
+			qsplit = line.split(":", 1)
+			activeQuote.character = qsplit[0].title()
+			activeQuote.quote = qsplit[1]
 		else:
 			if activeQuote:
 				activeQuote.quote += " " + line

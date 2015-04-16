@@ -61,8 +61,8 @@
           console.log("executing");
           var entry = data[Math.floor(Math.random()*data.length)];
           console.log(entry);
-          $("#quoteDisplay").html("<b>"+entry.setting+"</b></br></br><b>"+entry.characters+
-            "</b></br></br><i>"+entry.dialogue+"</i></br></br>("+
+          $("#quoteDisplay").html("<b>"+entry.setting+"</b></br></br><b>{"+entry.characters+
+            "}</b></br></br><i>"+entry.dialogue+"</i></br></br>("+
             entry.episode+")");
         });
       });
