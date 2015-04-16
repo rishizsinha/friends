@@ -53,7 +53,7 @@ def epConvert(transcroup):
 				epQuotes.append(activeQuote.tojson())
 				if activeScene:
 					activeScene.dialogue += activeQuote.character + ": " + \
-						activeQuote.quote + "\n"
+						activeQuote.quote + "\r"
 			activeQuote = Quote()
 			activeQuote.episode = title
 			qsplit = line.split(":", 1)
