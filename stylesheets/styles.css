@@ -1,7 +1,6 @@
 @import url(https://fonts.googleapis.com/css?family=Lato:300italic,700italic,300,700);
 
 body {
-  padding:50px;
   font:14px/1.5 Lato, "Helvetica Neue", Helvetica, Arial, sans-serif;
   color:#777;
   font-weight:300;
@@ -48,6 +47,7 @@ a small {
 .wrapper {
   width:860px;
   margin:0 auto;
+  padding: 30px 50px;
 }
 
 blockquote {
@@ -252,4 +252,12 @@ footer {
     font-size:12pt;
     color:#444;
   }
+}
+
+#quoteDisplay {
+  padding: 50px;
+}
+
+.navbar-brand {
+  padding-top:10px !important;
 }
