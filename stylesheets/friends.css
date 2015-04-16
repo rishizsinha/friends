@@ -1,0 +1,58 @@
+
+div {
+  padding: 10px;
+}
+
+#quoteDisplay {
+  padding: 50px;
+}
+
+.navbar-brand {
+  padding-top:10px !important;
+}
+
+.circular {
+  width: 100px;
+  height: 100px;
+  margin: 5px;
+  border-radius: 150px;
+  -webkit-border-radius: 150px;
+  -moz-border-radius: 150px;
+  box-shadow: 0 0 8px rgba(0, 0, 0, .8);
+  -webkit-box-shadow: 0 0 8px rgba(0, 0, 0, .8);
+  -moz-box-shadow: 0 0 8px rgba(0, 0, 0, .8);
+}
+.circular:hover{
+  cursor: pointer;
+}
+
+.divider{
+  width:5px;
+  height:auto;
+  display:inline-block;
+}
+
+#rachel {
+  background: url(../images/rachel.png) no-repeat;
+  background-size: 100% 100%;
+}
+#ross {
+  background: url(../images/ross.png) no-repeat;
+  background-size: 100% 100%;
+}
+#chandler {
+  background: url(../images/chandler.png) no-repeat;
+  background-size: 100% 100%;
+}
+#joey {
+  background: url(../images/joey.png) no-repeat;
+  background-size: 100% 100%;
+}
+#phoebe {
+  background: url(../images/phoebe.png) no-repeat;
+  background-size: 100% 100%;
+}
+#monica {
+  background: url(../images/monica.png) no-repeat;
+  background-size: 100% 100%;
+}

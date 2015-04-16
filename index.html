@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
     <link rel="stylesheet" href="stylesheets/styles.css">
     <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <link rel="stylesheet" href="stylesheets/friends.css">
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
     <!--[if lt IE 9]>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -90,7 +91,7 @@
       }; 
 
       $('#quoteButton').click(function() {
-        $.getJSON("http://rishizsinha.github.io/friends/quotedb.json", function(data) {
+        $.getJSON("http://rishizsinha.github.io/friends/data/quotedb.json", function(data) {
           var entry = data[Math.floor(Math.random()*data.length)];
           $("#quoteDisplay").html("<i>"+entry.quote+"</i></br></br>~"+entry.character+"</br>("+entry.episode+")");
         })
@@ -98,7 +99,7 @@
       });
 
       $('#sceneButton').click(function() {
-        $.getJSON("http://rishizsinha.github.io/friends/scenedb.json", function(data) {
+        $.getJSON("http://rishizsinha.github.io/friends/data/scenedb.json", function(data) {
           var entry = data[Math.floor(Math.random()*data.length)];
           console.log(entry);
           $("#quoteDisplay").html("<b>"+entry.setting+"</b></br></br><b>{"+entry.characters+
@@ -108,7 +109,7 @@
       });
 
       $('#rachel').click(function() {
-        $.getJSON("http://rishizsinha.github.io/friends/quotedb.json", function(data) {
+        $.getJSON("http://rishizsinha.github.io/friends/data/quotedb.json", function(data) {
           var entry = data[Math.floor(Math.random()*data.length)];
           while (entry.character != "Rachel") {
             entry = data[Math.floor(Math.random()*data.length)];
@@ -119,7 +120,7 @@
       });
 
       $('#chandler').click(function() {
-        $.getJSON("http://rishizsinha.github.io/friends/quotedb.json", function(data) {
+        $.getJSON("http://rishizsinha.github.io/friends/data/quotedb.json", function(data) {
           var entry = data[Math.floor(Math.random()*data.length)];
           while (entry.character != "Chandler") {
             entry = data[Math.floor(Math.random()*data.length)];
@@ -130,7 +131,7 @@
       });
 
       $('#monica').click(function() {
-        $.getJSON("http://rishizsinha.github.io/friends/quotedb.json", function(data) {
+        $.getJSON("http://rishizsinha.github.io/friends/data/quotedb.json", function(data) {
           var entry = data[Math.floor(Math.random()*data.length)];
           while (entry.character != "Monica") {
             entry = data[Math.floor(Math.random()*data.length)];
@@ -141,7 +142,7 @@
       });
 
       $('#phoebe').click(function() {
-        $.getJSON("http://rishizsinha.github.io/friends/quotedb.json", function(data) {
+        $.getJSON("http://rishizsinha.github.io/friends/data/quotedb.json", function(data) {
           var entry = data[Math.floor(Math.random()*data.length)];
           while (entry.character != "Phoebe") {
             entry = data[Math.floor(Math.random()*data.length)];
@@ -152,7 +153,7 @@
       });
 
       $('#joey').click(function() {
-        $.getJSON("http://rishizsinha.github.io/friends/quotedb.json", function(data) {
+        $.getJSON("http://rishizsinha.github.io/friends/data/quotedb.json", function(data) {
           var entry = data[Math.floor(Math.random()*data.length)];
           while (entry.character != "Joey") {
             entry = data[Math.floor(Math.random()*data.length)];
@@ -163,7 +164,7 @@
       });
 
       $('#ross').click(function() {
-        $.getJSON("http://rishizsinha.github.io/friends/quotedb.json", function(data) {
+        $.getJSON("http://rishizsinha.github.io/friends/data/quotedb.json", function(data) {
           var entry = data[Math.floor(Math.random()*data.length)];
           while (entry.character != "Ross") {
             entry = data[Math.floor(Math.random()*data.length)];

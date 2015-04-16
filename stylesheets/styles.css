@@ -288,27 +288,27 @@ div {
 }
 
 #rachel {
-  background: url(../rachel.png) no-repeat;
+  background: url(../images/rachel.png) no-repeat;
   background-size: 100% 100%;
 }
 #ross {
-  background: url(../ross.png) no-repeat;
+  background: url(../images/ross.png) no-repeat;
   background-size: 100% 100%;
 }
 #chandler {
-  background: url(../chandler.png) no-repeat;
+  background: url(../images/chandler.png) no-repeat;
   background-size: 100% 100%;
 }
 #joey {
-  background: url(../joey.png) no-repeat;
+  background: url(../images/joey.png) no-repeat;
   background-size: 100% 100%;
 }
 #phoebe {
-  background: url(../phoebe.png) no-repeat;
+  background: url(../images/phoebe.png) no-repeat;
   background-size: 100% 100%;
 }
 #monica {
-  background: url(../monica.png) no-repeat;
+  background: url(../images/monica.png) no-repeat;
   background-size: 100% 100%;
 }
 
