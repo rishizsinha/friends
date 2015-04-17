@@ -82,7 +82,8 @@
 
       function randomQuote() {
         $.getJSON("http://rishizsinha.github.io/friends/data/quotedb.json", function(data) {
-          var entry = data[Math.floor(Math.random()*data.length)];
+          var entry;
+          entry = data[Math.floor(Math.random()*data.length)];
           return entry;
         });
       };
