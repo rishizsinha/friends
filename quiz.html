@@ -83,26 +83,19 @@
     </div>
     <script>
       var totalq = 0;
-      function rChar() {
-        $.getJSON("http://rishizsinha.github.io/friends/data/charfdb.json", function(data) {
-          return data[Math.floor(Math.random()*data.length)];
-        });
-      };
-      function rEp() {
-        $.getJSON("http://rishizsinha.github.io/friends/data/epdb.json", function(data) {
-          return data[Math.floor(Math.random()*data.length)];
-        });
-      };
 
       function qGen() {
         $.getJSON("http://rishizsinha.github.io/friends/data/quotedb.json", function(data) {
           var q = data[Math.floor(Math.random()*data.length)];
+          var w1 = data[Math.floor(Math.random()*data.length)];
+          var w2 = data[Math.floor(Math.random()*data.length)];
+          var w3 = data[Math.floor(Math.random()*data.length)];
           // Add quote to quote display
           $("#quoteDisplay").html("<i>"+q.quote+"</i></br></br>~"+q.character+"</br>("+q.episode+")");
           var right = q.character+" ("+q.episode+")";
-          var wrong1 = rChar()+" ("+rEp()+")";
-          var wrong2 = rChar()+" ("+rEp()+")";
-          var wrong3 = rChar()+" ("+rEp()+")";
+          var wrong1 = w1.character+" ("+w1.episode+")";
+          var wrong2 = w2.character+" ("+w2.episode+")";
+          var wrong3 = w3.character+" ("+w3.episode+")";
           var options = [right, wrong1, wrong2, wrong3]
           console.log(options)
         });
