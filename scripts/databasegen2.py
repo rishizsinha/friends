@@ -34,12 +34,13 @@ class Scene:
 			"dialogue":self.dialogue, "episode":self.episode}
 
 def epConvert(transcroup):
-	title = transcroup.title.string.encode("utf8").title()
+	title = transcroup.title.string
 	text = transcroup.get_text()
 	activeScene = None
 	activeQuote = None
 	epQuotes = []
 	epScenes = []
+	epChars = set()
 	for line in text.splitlines():
 		line = line.encode("utf8")
 		if "[Scene: " in line:
@@ -58,18 +59,22 @@ def epConvert(transcroup):
 			activeQuote.episode = title
 			qsplit = line.split(":", 1)
 			activeQuote.character = qsplit[0].title()
+			epChars.add(activeQuote.character)
 			activeQuote.quote = qsplit[1]
 		else:
 			if activeQuote:
 				activeQuote.quote += " " + line
 				if activeScene and activeQuote.character not in activeScene.characters:
 					activeScene.characters.append(activeQuote.character)
-	return epQuotes, epScenes
+	#print title, list(epChars)
+	return epQuotes, epScenes, epChars, title
 
 def main():
 	allquotes = []
 	allscenes = []
-	BASE = "friendsalltranscripts/"
+	characters = set()
+	eps = []
+	BASE = "../rawtranscripts/"
 	for ep in listdir(BASE):
 		print ep
 		f = open(BASE+ep, 'r')
@@ -77,13 +82,22 @@ def main():
 		res = epConvert(soup)
 		allquotes += res[0]
 		allscenes += res[1]
-
-	qdb = open("quotedb.json", 'w')
-	sdb = open("scenedb.json", 'w')
+		characters = characters.union(res[2])
+		eps.append(res[3])
+	print eps
+	print characters
+	qdb = open("../data/quotedb.json", 'w')
+	sdb = open("../data/scenedb.json", 'w')
+	cdb = open("../data/chardb.json", 'w')
+	epdb = open("../data/epdb.json", 'w')
 	qdb.write(json.dumps(allquotes))
 	sdb.write(json.dumps(allscenes))
+	cdb.write(json.dumps(list(characters)))
+	epdb.write(json.dumps(eps))
 	qdb.close()
 	sdb.close()
+	cdb.close()
+	epdb.close()
 
 main()
 
