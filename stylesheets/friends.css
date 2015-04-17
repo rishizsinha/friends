@@ -24,6 +24,7 @@ div {
 }
 .circular:hover{
   cursor: pointer;
+  background: gray;
 }
 
 .divider{
@@ -56,3 +57,25 @@ div {
   background: url(../images/monica.png) no-repeat;
   background-size: 100% 100%;
 }
+
+.mc:hover {
+  cursor: pointer;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

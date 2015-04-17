@@ -53,6 +53,9 @@
       <div id="scoreDiv">
         <p id="score"> Score: </p>
       </div>
+      <div id="feedbackDiv" style="display:inline-block;">
+        <p id="feedback"> </p>
+      </div>
 
       <div id="questionDiv">
         <div id="quoteDisplay">
@@ -60,13 +63,13 @@
         </div>
 
         <div id="optionsDiv">
-          <div id="o1">
+          <div class="mc" id="o1">
           </div>
-          <div id="o2">
+          <div class="mc" id="o2">
           </div>
-          <div id="o3">
+          <div class="mc" id="o3">
           </div>
-          <div id="o4">
+          <div class="mc" id="o4">
           </div>
         </div>
       </div>
@@ -83,6 +86,22 @@
     </div>
     <script>
       var totalq = 0;
+      var rightq = 0;
+      var storeRight;
+
+      /**
+       * Randomize array element order in-place.
+       * Using Fisher-Yates shuffle algorithm.
+       **/
+      function shuffleArray(array) {
+        for (var i = array.length - 1; i > 0; i--) {
+          var j = Math.floor(Math.random() * (i + 1));
+          var temp = array[i];
+          array[i] = array[j];
+          array[j] = temp;
+        }
+        return array;
+      }
 
       function qGen() {
         $.getJSON("http://rishizsinha.github.io/friends/data/quotedb.json", function(data) {
@@ -91,18 +110,39 @@
           var w2 = data[Math.floor(Math.random()*data.length)];
           var w3 = data[Math.floor(Math.random()*data.length)];
           // Add quote to quote display
-          $("#quoteDisplay").html("<i>"+q.quote+"</i></br></br>~"+q.character+"</br>("+q.episode+")");
-          var right = q.character+" ("+q.episode+")";
+          $("#quoteDisplay").html("<i>'"+q.quote+"'</i></br>");
+          // Start creating question options
+          var correct = q.character+" ("+q.episode+")";
+          storeRight = q.character+" ("+q.episode+")"
           var wrong1 = w1.character+" ("+w1.episode+")";
           var wrong2 = w2.character+" ("+w2.episode+")";
           var wrong3 = w3.character+" ("+w3.episode+")";
-          var options = [right, wrong1, wrong2, wrong3]
-          console.log(options)
+          var options = [correct, wrong1, wrong2, wrong3];
+          options = shuffleArray(options);
+          // Assign options to proper divs
+          $("#o1").html("a) "+options[0]); 
+          $("#o2").html("b) "+options[1]);
+          $("#o3").html("c) "+options[2]);
+          $("#o4").html("d) "+options[3]);      
         });
       };
 
       $('#startButton').click(function() {
         qGen();
+      });
+
+      $('.mc').click(function() {
+        if ($(this).text().slice(3) == storeRight) {
+          console.log("correct");
+          $('#feedback').text("Correct!");
+          rightq += 1;
+          qGen();
+        } else {
+          console.log("wrong");
+          $('#feedback').text("Wrong!");
+        }
+        totalq += 1;
+        $('#score').text("Score: "+rightq+"/"+totalq);
       });
 
       $('#nextButton').click(function() {
