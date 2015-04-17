@@ -41,6 +41,7 @@ def epConvert(transcroup):
 	epQuotes = []
 	epScenes = []
 	epChars = set()
+	epCharFreq = []
 	for line in text.splitlines():
 		line = line.encode("utf8")
 		if "[Scene: " in line:
@@ -60,6 +61,7 @@ def epConvert(transcroup):
 			qsplit = line.split(":", 1)
 			activeQuote.character = qsplit[0].title()
 			epChars.add(activeQuote.character)
+			epCharFreq.append(activeQuote.character)
 			activeQuote.quote = qsplit[1]
 		else:
 			if activeQuote:
@@ -67,12 +69,13 @@ def epConvert(transcroup):
 				if activeScene and activeQuote.character not in activeScene.characters:
 					activeScene.characters.append(activeQuote.character)
 	#print title, list(epChars)
-	return epQuotes, epScenes, epChars, title
+	return epQuotes, epScenes, epChars, epCharFreq, title
 
 def main():
 	allquotes = []
 	allscenes = []
 	characters = set()
+	charFreq = []
 	eps = []
 	BASE = "../rawtranscripts/"
 	for ep in listdir(BASE):
@@ -83,20 +86,24 @@ def main():
 		allquotes += res[0]
 		allscenes += res[1]
 		characters = characters.union(res[2])
-		eps.append(res[3])
+		charFreq += res[3]
+		eps.append(res[4])
 	print eps
 	print characters
 	qdb = open("../data/quotedb.json", 'w')
 	sdb = open("../data/scenedb.json", 'w')
 	cdb = open("../data/chardb.json", 'w')
+	cfdb = open("../data/charfdb.json", 'w')
 	epdb = open("../data/epdb.json", 'w')
 	qdb.write(json.dumps(allquotes))
 	sdb.write(json.dumps(allscenes))
 	cdb.write(json.dumps(list(characters)))
+	cfdb.write(json.dumps(charFreq))
 	epdb.write(json.dumps(eps))
 	qdb.close()
 	sdb.close()
 	cdb.close()
+	cfdb.close()
 	epdb.close()
 
 main()

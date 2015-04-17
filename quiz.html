@@ -83,12 +83,16 @@
     </div>
     <script>
       var totalq = 0;
-      var chars = $.getJSON("http://rishizsinha.github.io/friends/data/chardb.json", function(data) {
-        return data.responseJSON;
-      });
-      var eps = $.getJSON("http://rishizsinha.github.io/friends/data/epdb.json", function(data) {
-        return data.resonseJSON;
-      });
+      function rChar() {
+        $.getJSON("http://rishizsinha.github.io/friends/data/charfdb.json", function(data) {
+          return data[Math.floor(Math.random()*data.length)];
+        });
+      };
+      function rEp() {
+        $.getJSON("http://rishizsinha.github.io/friends/data/epdb.json", function(data) {
+          return data[Math.floor(Math.random()*data.length)];
+        });
+      };
 
       function qGen() {
         $.getJSON("http://rishizsinha.github.io/friends/data/quotedb.json", function(data) {
@@ -96,9 +100,9 @@
           // Add quote to quote display
           $("#quoteDisplay").html("<i>"+q.quote+"</i></br></br>~"+q.character+"</br>("+q.episode+")");
           var right = q.character+" ("+q.episode+")";
-          var wrong1 = chars[Math.floor(Math.random()*chars.length)]+" ("+eps[Math.floor(Math.random()*eps.length)]+")";
-          var wrong2 = chars[Math.floor(Math.random()*chars.length)]+" ("+eps[Math.floor(Math.random()*eps.length)]+")";
-          var wrong3 = chars[Math.floor(Math.random()*chars.length)]+" ("+eps[Math.floor(Math.random()*eps.length)]+")";
+          var wrong1 = rChar()+" ("+rEp()+")";
+          var wrong2 = rChar()+" ("+rEp()+")";
+          var wrong3 = rChar()+" ("+rEp()+")";
           var options = [right, wrong1, wrong2, wrong3]
           console.log(options)
         });
@@ -108,7 +112,9 @@
         qGen();
       });
 
-      $('')
+      $('#nextButton').click(function() {
+        qGen();
+      });
 
     </script>
     <script src="javascripts/scale.fix.js"></script>
