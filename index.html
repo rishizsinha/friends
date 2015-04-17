@@ -30,7 +30,7 @@
             <span class="icon-bar"></span>
           </button>
           <a class="navbar-brand">
-            <img src="friendslogoxs.png" class="logo" />
+            <img src="images/friendslogoxs.png" class="logo" />
           </a>
         </div>
 
@@ -80,22 +80,29 @@
     </div>
     <script>
 
-      var randomQuote = function() {
-        $.getJSON("http://rishizsinha.github.io/friends/quotedb.json", function(data) {
-          return data[Math.floor(Math.random()*data.length)];
+      function randomQuote() {
+        $.getJSON("http://rishizsinha.github.io/friends/data/quotedb.json", function(data) {
+          var entry = data[Math.floor(Math.random()*data.length)];
+          return entry;
         });
       };
 
-      var quoteDisplay = function(q) {
+      function quoteDisplay(q) {
         $("#quoteDisplay").html("<i>"+q.quote+"</i></br></br>~"+q.character+"</br>("+q.episode+")");
       }; 
 
-      $('#quoteButton').click(function() {
-        $.getJSON("http://rishizsinha.github.io/friends/data/quotedb.json", function(data) {
-          var entry = data[Math.floor(Math.random()*data.length)];
-          $("#quoteDisplay").html("<i>"+entry.quote+"</i></br></br>~"+entry.character+"</br>("+entry.episode+")");
-        })
+      function charQuote(c) {
+        var entry;
+        while (entry.character != c) {
+          entry = randomQuote();
+        }
+        quoteDisplay(entry);
+      }
 
+      $('#quoteButton').click(function() {
+        var entry;
+        entry = randomQuote();
+        quoteDisplay(entry);
       });
 
       $('#sceneButton').click(function() {
@@ -109,69 +116,27 @@
       });
 
       $('#rachel').click(function() {
-        $.getJSON("http://rishizsinha.github.io/friends/data/quotedb.json", function(data) {
-          var entry = data[Math.floor(Math.random()*data.length)];
-          while (entry.character != "Rachel") {
-            entry = data[Math.floor(Math.random()*data.length)];
-          }
-          console.log(entry);
-          $("#quoteDisplay").html("<i>"+entry.quote+"</i></br></br>~"+entry.character+"</br>("+entry.episode+")");
-        });
+        charQuote("Rachel");
       });
 
       $('#chandler').click(function() {
-        $.getJSON("http://rishizsinha.github.io/friends/data/quotedb.json", function(data) {
-          var entry = data[Math.floor(Math.random()*data.length)];
-          while (entry.character != "Chandler") {
-            entry = data[Math.floor(Math.random()*data.length)];
-          }
-          console.log(entry);
-          $("#quoteDisplay").html("<i>"+entry.quote+"</i></br></br>~"+entry.character+"</br>("+entry.episode+")");
-        });
+        charQuote("Chandler")
       });
 
       $('#monica').click(function() {
-        $.getJSON("http://rishizsinha.github.io/friends/data/quotedb.json", function(data) {
-          var entry = data[Math.floor(Math.random()*data.length)];
-          while (entry.character != "Monica") {
-            entry = data[Math.floor(Math.random()*data.length)];
-          }
-          console.log(entry);
-          $("#quoteDisplay").html("<i>"+entry.quote+"</i></br></br>~"+entry.character+"</br>("+entry.episode+")");
-        });
+        charQuote("Monica")
       });
 
       $('#phoebe').click(function() {
-        $.getJSON("http://rishizsinha.github.io/friends/data/quotedb.json", function(data) {
-          var entry = data[Math.floor(Math.random()*data.length)];
-          while (entry.character != "Phoebe") {
-            entry = data[Math.floor(Math.random()*data.length)];
-          }
-          console.log(entry);
-          $("#quoteDisplay").html("<i>"+entry.quote+"</i></br></br>~"+entry.character+"</br>("+entry.episode+")");
-        });
+        charQuote("Phoebe")
       });
 
       $('#joey').click(function() {
-        $.getJSON("http://rishizsinha.github.io/friends/data/quotedb.json", function(data) {
-          var entry = data[Math.floor(Math.random()*data.length)];
-          while (entry.character != "Joey") {
-            entry = data[Math.floor(Math.random()*data.length)];
-          }
-          console.log(entry);
-          $("#quoteDisplay").html("<i>"+entry.quote+"</i></br></br>~"+entry.character+"</br>("+entry.episode+")");
-        });
+        charQuote("Joey")
       });
 
       $('#ross').click(function() {
-        $.getJSON("http://rishizsinha.github.io/friends/data/quotedb.json", function(data) {
-          var entry = data[Math.floor(Math.random()*data.length)];
-          while (entry.character != "Ross") {
-            entry = data[Math.floor(Math.random()*data.length)];
-          }
-          console.log(entry);
-          $("#quoteDisplay").html("<i>"+entry.quote+"</i></br></br>~"+entry.character+"</br>("+entry.episode+")");
-        });
+        charQuote("Ross")
       });
     </script>
     <script src="javascripts/scale.fix.js"></script>
